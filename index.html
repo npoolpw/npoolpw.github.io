@@ -64,8 +64,9 @@ body {
           <tr>
               <th><i class="fa fa-bars"></i> Coin</th>
               <th><i class="fa fa-tachometer"></i> Hashrate</th>
-              <th><i class="fa fa-users"></i> Connected Miners</th>
-              <th><i class="fa fa-gavel"></i> Connected Workers</th>
+              <th><i class="fa fa-users"></i> Miners</th>
+              <th><i class="fa fa-gavel"></i> Workers</th>
+              <th><i class="fa fa-cubes"></i> Block Found</th>
               <th><i class="fa fa-clock-o"></i> Last Block Found</th>
           </tr>
           </thead>
@@ -86,6 +87,7 @@ body {
                 updateText('hashrate-'+this[0], getReadableHashRateString(data.pool.hashrate)+'/s');
                 updateText('miners-'+this[0], data.pool.miners);
                 updateText('workers-'+this[0], data.pool.workers);
+                updateText('totalBlocks-'+this[0], data.pool.totalBlocks);
                 updateText('lastBlockFound-'+this[0], new Date(parseInt(data.pool.lastBlockFound)).toLocaleString());
             });
         });
@@ -118,6 +120,7 @@ body {
                 '<td id=hashrate-'+this[0]+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
                 '<td id=miners-'+this[0]+'>'+data.pool.miners+'</td>' +
                 '<td id=workers-'+this[0]+'>'+data.pool.workers+'</td>' +
+                '<td id=totalBlocks-'+this[0]+'>'+data.pool.totalBlocks+'</td>' +
                 '<td id=lastBlockFound-'+this[0]+'>'+new Date(parseInt(data.pool.lastBlockFound)).toLocaleString()+'</td>' +
             '</tr>');
         });
