@@ -92,6 +92,12 @@ body {
         return hashrate.toFixed(2) + byteUnits[i];
     }
     
+    $.each(listPool, function(){
+        $.getJSON(this[2] + '/stats', (data, textStatus, jqXHR) => {
+            console.log(this);
+        });
+    });
+    
     for(var i=0; i<listPool.length; i++)
     {
         $.getJSON(listPool[i][2] + '/stats', (data, textStatus, jqXHR) => {
