@@ -35,10 +35,14 @@ body {
 .table > tbody > tr > td {
     border-top-color: #c9e0e9;
 }
-#network_rows > tr > td{
+#rows > tr > td{
     vertical-align: middle;
     font-family: 'Inconsolata', monospace;
     font-size: 0.95em;
+}
+
+#rows img{
+    max-width: 20px;
 }
 </style>
 </head>
@@ -100,7 +104,7 @@ body {
     $.each(listPool, function(){
         XhrNetworkStat = $.getJSON(this[2] + '/stats', (data, textStatus, jqXHR) => {
             $('#rows').append('<tr>' +
-                '<td id=coin-'+this[0]+'><a target="_blank" href='+this[1]+'>'+this[0]+'</a></td>' +
+                '<td id=coin-'+this[0]+'><img src="'+this[1]+'/logo.png" title="'+this[0]+'" /><a target="_blank" href='+this[1]+'>'+this[0]+'</a></td>' +
                 '<td id=hashrate-'+this[0]+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
                 '<td id=miners-'+this[0]+'>'+data.pool.miners+'</td>' +
                 '<td id=workers-'+this[0]+'>'+data.pool.workers+'</td>' +
