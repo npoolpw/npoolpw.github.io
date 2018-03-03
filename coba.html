@@ -94,8 +94,9 @@ body {
     
     for(pool in listPool)
     {
+        console.log(pool);
         $.getJSON(pool[2] + '/stats', (data, textStatus, jqXHR) => {
-            $('#network_rows').append('<tr>' +
+            $('#rows').append('<tr>' +
                 '<td id=coin-'+pool[0]+'><a target="_blank" href='+pool[1]+'>'+pool[0]+'</a></td>' +
                 '<td id=hashrate-'+pool[0]+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
                 '<td id=miners-'+pool[0]+'>'+data.pool.miners+'</td>' +
