@@ -92,7 +92,8 @@ body {
         return hashrate.toFixed(2) + byteUnits[i];
     }
     
-    for(var i=0; i<listPool.length; i++)
+    var i;
+    for(i=0; i<listPool.length; i++)
     {
         $.getJSON(listPool[i][2] + '/stats', (data, textStatus, jqXHR) => {
             $('#rows').append('<tr>' +
