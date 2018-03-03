@@ -92,10 +92,10 @@ body {
         return hashrate.toFixed(2) + byteUnits[i];
     }
     
-    var i;
-    for(i=0; i<listPool.length; i++)
+    for(var i=0; i<listPool.length; i++)
     {
         $.getJSON(listPool[i][2] + '/stats', (data, textStatus, jqXHR) => {
+            console.log(listPool);
             $('#rows').append('<tr>' +
                 '<td id=coin-'+listPool[i][0]+'><a target="_blank" href='+listPool[i][1]+'>'+listPool[i][0]+'</a></td>' +
                 '<td id=hashrate-'+listPool[i][0]+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
