@@ -42,7 +42,11 @@ body {
     font-size: 1em;
 }
 
-.table-hover > tbody > tr:hover {
+.table-hover > tbody > tr > td:hover,
+.table-hover > tbody > tr > th:hover,
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover,
+.table-hover > tbody > tr:hover > th {
   background-color: #dbebff;
 }
 
