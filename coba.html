@@ -92,15 +92,14 @@ body {
         return hashrate.toFixed(2) + byteUnits[i];
     }
     
-    for(pool in listPool)
+    for(var i=0; i<listPool.length; i++)
     {
-        console.log(pool);
-        $.getJSON(pool[2] + '/stats', (data, textStatus, jqXHR) => {
+        $.getJSON(listPool[i][2] + '/stats', (data, textStatus, jqXHR) => {
             $('#rows').append('<tr>' +
-                '<td id=coin-'+pool[0]+'><a target="_blank" href='+pool[1]+'>'+pool[0]+'</a></td>' +
-                '<td id=hashrate-'+pool[0]+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
-                '<td id=miners-'+pool[0]+'>'+data.pool.miners+'</td>' +
-                '<td id=lastBlockFound-'+pool[0]+'>'+new Date(parseInt(data.pool.lastBlockFound)).toLocaleString()+'</td>' +
+                '<td id=coin-'+listPool[i][0]+'><a target="_blank" href='+listPool[i][1]+'>'+listPool[i][0]+'</a></td>' +
+                '<td id=hashrate-'+listPool[i][0]+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
+                '<td id=miners-'+listPool[i][0]+'>'+data.pool.miners+'</td>' +
+                '<td id=lastBlockFound-'+listPool[i][0]+'>'+new Date(parseInt(data.pool.lastBlockFound)).toLocaleString()+'</td>' +
             '</tr>');
         });
     }
