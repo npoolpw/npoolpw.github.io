@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="en">
+<meta charset="UTF-8"/>
+<!--<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+<meta http-equiv="content-type" content="text/html" />
+<meta name="author" content="npool.pw" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link href="//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+<title>Pool List</title>
+<style>
+@import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+@import url(//fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+body {
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #6f6e6e;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    padding-top: 65px;
+    padding-bottom: 80px;
+    overflow-y: scroll;
+    color: #555555;
+    background-color: #ffffff;
+}
+
+.center-div
+{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.center-div .content
+{
+    width: 150px;
+    height: 150px;
+    border: 1px #ccc solid;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 10px;
+}
+.content:hover,
+.content:active
+{
+    background-color: #E4E4E4;
+}
+.center-div img
+{
+    margin-left: 10px;
+    padding: 5px;
+    height: 120px;
+}
+.center-div a
+{
+    text-decoration: none;
+    color: #000;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    width: 100%;
+}
+.center-div h3
+{
+    margin: auto;
+    line-height: 0.2;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="table-responsive">
+      <table class="table table-hover">
+          <thead>
+          <tr>
+              <th><i class="fa fa-bars"></i> Coin</th>
+              <th><i class="fa fa-bars"></i> Hashrate</th>
+              <th><i class="fa fa-unlock-alt"></i> Miner</th>
+              <th><i class="fa fa-clock-o"></i> Last Block Found</th>
+          </tr>
+          </thead>
+          <tbody id="blocks_rows">
+
+          </tbody>
+      </table>
+  </div>
+</div>
+<div class="center-div">
+    <div class="content">
+        <a target="_blank" href="stellite">
+            <img src="stellite/logo.png" />
+            <h3>STELLITE</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="pnks">
+            <img src="pnks/logo.png" />
+            <h3>PINKSTARCOIN</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="bbscoin">
+            <img src="bbscoin/logo.png" />
+            <h3>BBSCOIN</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="qwc">
+            <img src="qwc/logo.png" />
+            <h3>QWERTYCOIN</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="ipbc">
+            <img src="ipbc/logo.png" />
+            <h3>IPBC</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="crepcoin">
+            <img src="crepcoin/logo.png" />
+            <h3>CREPCOIN</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="itns">
+            <img src="itns/logo.png" />
+            <h3>INTENSECOIN</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="arto">
+            <img src="arto/logo.png" />
+            <h3>ARTO</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="kreditx">
+            <img src="kreditx/logo.png" />
+            <h3>KREDITX</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="tychecash">
+            <img src="tychecash/logo.png" />
+            <h3>TYCHECASH</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="bkc">
+            <img src="bkc/logo.png" />
+            <h3>BALKANCOIN</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="loncoin">
+            <img src="loncoin/logo.png" />
+            <h3>LONCOIN</h3>
+        </a>
+    </div>
+      <div class="content">
+        <a target="_blank" href="jimcoin">
+            <img src="jimcoin/logo.png" />
+            <h3>JIMCOIN</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="triton">
+            <img src="triton/logo.png" />
+            <h3>TRITON</h3>
+        </a>
+    </div>
+    <div class="content">
+        <a target="_blank" href="bitsum">
+            <img src="bitsum/logo.png" />
+            <h3>BITSUM</h3>
+        </a>
+    </div>
+</div>
+</body>
+</html>
