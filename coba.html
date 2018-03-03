@@ -75,6 +75,8 @@ body {
                 updateText('lastBlockFound-'+this[0], new Date(parseInt(data.pool.lastBlockFound)).toLocaleString());
             });
         });
+        
+        setTimeout(networkStat, 30000);
     }
     
     function updateText(elementId, text){
@@ -106,6 +108,8 @@ body {
             '</tr>');
         });
     });
+    
+    setTimeout(networkStat, 30000);
 </script>
 </body>
 </html>
