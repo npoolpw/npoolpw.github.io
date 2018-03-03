@@ -11,6 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+<script src="config.js"></script>
 <title>Pool List</title>
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
@@ -32,7 +33,12 @@ body {
     border-bottom-color: #cccccc;
 }
 .table > tbody > tr > td {
-  border-top-color: #c9e0e9;
+    border-top-color: #c9e0e9;
+}
+#network_rows > tr > td{
+    vertical-align: middle;
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.95em;
 }
 </style>
 </head>
@@ -49,11 +55,54 @@ body {
               <th><i class="fa fa-clock-o"></i> Last Block Found</th>
           </tr>
           </thead>
-          <tbody id="blocks_rows">
+          <tbody id="rows">
 
           </tbody>
       </table>
   </div>
 </div>
+<script type="text/javascript">
+    function networkStat()
+    {
+        const NETWORK_STAT_MAP = new Map(listPool);
+        NETWORK_STAT_MAP.forEach((url, host, coin, map) => {
+            $.getJSON(url + '/stats', (data, textStatus, jqXHR) => {
+                updateText('hashrate-'+coin, getReadableHashRateString(data.pool.hashrate)+'/s');
+                updateText('miners-'+coin, data.pool.miners);
+                updateText('lastBlockFound-'+coin, new Date(parseInt(data.pool.lastBlockFound)).toLocaleString());
+            });
+        });
+    }
+    
+    function updateText(elementId, text){
+        var el = document.getElementById(elementId);
+        if (el.textContent !== text){
+            el.textContent = text;
+        }
+        return el;
+    }
+    
+    function getReadableHashRateString(hashrate){
+        var i = 0;
+        var byteUnits = [' H', ' KH', ' MH', ' GH', ' TH', ' PH' ];
+        while (hashrate > 1000){
+            hashrate = hashrate / 1000;
+            i++;
+        }
+        return hashrate.toFixed(2) + byteUnits[i];
+    }
+    
+    const NETWORK_STAT_MAP = new Map(listPool);
+    NETWORK_STAT_MAP.forEach((url, host, coin, map) => {
+        $.getJSON(url + '/stats', (data, textStatus, jqXHR) => {
+            $('#network_rows').append('<tr>' +
+                '<td id=coin-'+coin+'><a target="_blank" href='+host+'>'+coin+'</a></td>' +
+                '<td id=hashrate-'+coin+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
+                '<td id=miners-'+coin+'>'+data.pool.miners+'</td>' +
+                '<td id=lastBlockFound-'+coin+'>'+new Date(parseInt(data.pool.lastBlockFound)).toLocaleString()+'</td>' +
+            '</tr>');
+        });
+    });
+</script>
 </body>
 </html>
