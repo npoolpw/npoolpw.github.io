@@ -16,5 +16,6 @@ listPool = [
   ['Bitsum', 'http://npool.pw/bitsum', 'http://sum.npool.pw:10070'],
   ['Pluracoin', 'http://npool.pw/plura', 'http://ca.npool.pw:10080'],
   ['Elyacoin', 'http://npool.pw/elyacoin', 'http://ca.npool.pw:10090'],
-  ['Italocoin', 'http://npool.pw/italocoin', 'http://ca.npool.pw:2220']
+  ['Italocoin', 'http://npool.pw/italocoin', 'http://ca.npool.pw:2220'],
+  ['Marketcash', 'http://npool.pw/marketcash', 'http://ca.npool.pw:2230']
 ];
