@@ -64,6 +64,7 @@ body {
           <tr>
               <th><i class="fa fa-bars"></i> Coin</th>
               <th><i class="fa fa-tachometer"></i> Hashrate</th>
+              <th><i class="fa fa-tachometer"></i> Net Hashrate</th>
               <th><i class="fa fa-users"></i> Miners</th>
               <th><i class="fa fa-gavel"></i> Workers</th>
               <th><i class="fa fa-cubes"></i> Block Found</th>
@@ -85,6 +86,7 @@ body {
         $.each(listPool, function(){
             XhrNetworkStat = $.getJSON(this[2] + '/stats', (data, textStatus, jqXHR) => {
                 updateText('hashrate-'+this[0], getReadableHashRateString(data.pool.hashrate)+'/s');
+                updateText('nethashrate-'+this[0], getReadableHashRateString(data.network.difficulty/data.config.coinDifficultyTarget)+'/s');
                 updateText('miners-'+this[0], data.pool.miners);
                 updateText('workers-'+this[0], data.pool.workers);
                 updateText('totalBlocks-'+this[0], data.pool.totalBlocks);
@@ -118,6 +120,7 @@ body {
             $('#rows').append('<tr>' +
                 '<td id=coin-'+this[0]+'><a target="_blank" href='+this[1]+'><img src="'+this[1]+'/logo.png" title="'+this[0]+'" />'+this[0]+'</a></td>' +
                 '<td id=hashrate-'+this[0]+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
+                '<td id=nethashrate-'+this[0]+'>'+getReadableHashRateString(data.network.difficulty/data.config.coinDifficultyTarget)+'/s'+'</td>' +
                 '<td id=miners-'+this[0]+'>'+data.pool.miners+'</td>' +
                 '<td id=workers-'+this[0]+'>'+data.pool.workers+'</td>' +
                 '<td id=totalBlocks-'+this[0]+'>'+data.pool.totalBlocks+'</td>' +
