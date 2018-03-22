@@ -119,12 +119,12 @@ body {
     
     function getReadableDiffString(diff){
         var i = 0;
-        var byteUnits = ['', ' K', ' M', ' G', ' T', ' P' ];
+        var byteUnits = ['', 'K', 'M', 'G', 'T', 'P' ];
         while (diff > 1000){
             diff = diff / 1000;
             i++;
         }
-        return diff.toFixed(3) + byteUnits[i];
+        return diff.toFixed(2) + byteUnits[i];
     }
     
     $.each(listPool, function(){
