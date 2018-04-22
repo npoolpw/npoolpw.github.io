@@ -25,5 +25,6 @@ listPool = [
   ['Cadexcoin', 'http://npool.pw/cadex', 'http://ca.npool.pw:2290'],
   ['Solacecoin', 'http://npool.pw/solacecoin', 'http://ca.npool.pw:2300'],
   ['Gadcoin', 'http://npool.pw/gadcoin', 'http://ca.npool.pw:2320'],
-  ['Parsicoin', 'http://npool.pw/parsicoin', 'http://ca.npool.pw:2330']
+  ['Parsicoin', 'http://npool.pw/parsicoin', 'http://ca.npool.pw:2330'],
+  ['Eldorado', 'http://npool.pw/eldorado', 'http://ca.npool.pw:2340']
 ];
