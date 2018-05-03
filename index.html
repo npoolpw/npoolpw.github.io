@@ -67,7 +67,7 @@ body {
               <th><i class="fa fa-unlock-alt"></i> DIfficulty</th>
               <th><i class="fa fa-tachometer"></i> Net Hashrate</th>
               <th><i class="fa fa-users"></i> Miners</th>
-              <th><i class="fa fa-gavel"></i> Workers</th>
+              <!--<th><i class="fa fa-gavel"></i> Workers</th>-->
               <th><i class="fa fa-cubes"></i> Block Found</th>
               <th><i class="fa fa-clock-o"></i> Last Block Found</th>
           </tr>
@@ -90,7 +90,7 @@ body {
                 updateText('difficulty-'+this[0], getReadableDiffString(data.network.difficulty));
                 updateText('nethashrate-'+this[0], getReadableHashRateString(data.network.difficulty/data.config.coinDifficultyTarget)+'/s');
                 updateText('miners-'+this[0], data.pool.miners);
-                updateText('workers-'+this[0], data.pool.workers);
+                //updateText('workers-'+this[0], data.pool.workers);
                 updateText('totalBlocks-'+this[0], data.pool.totalBlocks);
                 updateText('lastBlockFound-'+this[0], new Date(parseInt(data.pool.lastBlockFound)).toLocaleString());
             });
@@ -135,7 +135,7 @@ body {
                 '<td id=difficulty-'+this[0]+'>'+getReadableDiffString(data.network.difficulty)+'</td>' +
                 '<td id=nethashrate-'+this[0]+'>'+getReadableHashRateString(data.network.difficulty/data.config.coinDifficultyTarget)+'/s'+'</td>' +
                 '<td id=miners-'+this[0]+'>'+data.pool.miners+'</td>' +
-                '<td id=workers-'+this[0]+'>'+data.pool.workers+'</td>' +
+                //'<td id=workers-'+this[0]+'>'+data.pool.workers+'</td>' +
                 '<td id=totalBlocks-'+this[0]+'>'+data.pool.totalBlocks+'</td>' +
                 '<td id=lastBlockFound-'+this[0]+'>'+new Date(parseInt(data.pool.lastBlockFound)).toLocaleString()+'</td>' +
             '</tr>');
