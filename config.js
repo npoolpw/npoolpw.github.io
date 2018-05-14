@@ -7,7 +7,7 @@ listPool = [
   ['Crepcoin', 'http://npool.pw/crepcoin', 'http://crep.npool.pw:8118'],
   ['Intensecoin', 'http://npool.pw/itns', 'http://itns.npool.pw:8119'],
   ['Arto', 'http://npool.pw/arto', 'http://sg1.npool.pw:3000'],
-  ['Triton', 'http://npool.pw/triton', 'http://trtn.npool.pw:10010'],
+  ['Triton', 'http://npool.pw/triton', 'http://sg1.npool.pw:3010'],
   ['Tychecash', 'http://npool.pw/tychecash', 'http://tyc.npool.pw:10020'],
   ['KreditX', 'http://npool.pw/kreditx', 'http://krx.npool.pw:10030'],
   ['Balkancoin', 'http://npool.pw/bkc', 'http://bkc.npool.pw:10040'],
