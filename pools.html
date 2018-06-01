@@ -12,7 +12,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
 <script src="pools.js"></script>
-<title>Pinkstarcoin PSTAR Pool List</title>
+<title>PinkstarCoin PSTAR Pool List</title>
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
@@ -62,7 +62,7 @@ body {
       <table class="table table-hover">
           <thead>
           <tr>
-              <th><i class="fa fa-bars"></i> Coin</th>
+              <th><i class="fa fa-bars"></i> Pool</th>
               <th><i class="fa fa-tachometer"></i> Hashrate</th>
               <th><i class="fa fa-unlock-alt"></i> Difficulty</th>
               <th><i class="fa fa-tachometer"></i> Net Hashrate</th>
@@ -124,7 +124,7 @@ body {
             diff = diff / 1000;
             i++;
         }
-        return diff.toFixed(2) + byteUnits[i];
+        return diff.toFixed(4) + byteUnits[i];
     }
     
     $.each(listPool, function(){
