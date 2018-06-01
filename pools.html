@@ -22,11 +22,18 @@ body {
     line-height: 1.5;
     color: #6f6e6e;
     font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
-    padding-top: 65px;
-    padding-bottom: 65px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     overflow-y: scroll;
     color: #555555;
     background-color: #ffffff;
+}
+
+.container {
+     width: 100%!important;
+}
+h1 {
+    padding-bottom:25px;
 }
 .table > thead > tr > th{
     color: #555555;
@@ -40,6 +47,10 @@ body {
     vertical-align: middle;
     font-family: 'Inconsolata', monospace;
     font-size: 1.1em;
+    text-align: right;
+}
+td.left {
+    text-align: left!important;
 }
 
 .table-hover > tbody > tr > td:hover,
@@ -50,6 +61,15 @@ body {
   background-color: #dbebff;
 }
 
+.table>thead>tr>th, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>tbody>tr>td, 
+.table>tfoot>tr>td {
+    padding: 8px 10px 8px 0;
+}
+
 #rows img{
     max-width: 20px;
     padding-right: 5px;
@@ -58,6 +78,7 @@ body {
 </head>
 <body>
 <div class="container">
+<h1>Compare PSTAR Mining Pools</h1>
   <div class="table-responsive">
       <table class="table table-hover">
           <thead>
@@ -68,8 +89,12 @@ body {
               <th><i class="fa fa-tachometer"></i> Net Hashrate</th>
               <th><i class="fa fa-users"></i> Miners</th>
               <th><i class="fa fa-gavel"></i> Workers</th>
+              <th><i class="fa fa-clock-o"></i> Minimum Payout</th>
+              <th><i class="fa fa-gavel"></i> Payment Every</th>
+              <th><i class="fa fa-gavel"></i> Fee</th>
               <th><i class="fa fa-cubes"></i> Blocks Found</th>
               <th><i class="fa fa-clock-o"></i> Last Block Found</th>
+              
           </tr>
           </thead>
           <tbody id="rows">
@@ -90,9 +115,14 @@ body {
                 updateText('difficulty-'+this[0], getReadableDiffString(data.network.difficulty));
                 updateText('nethashrate-'+this[0], getReadableHashRateString(data.network.difficulty/data.config.coinDifficultyTarget)+'/s');
                 updateText('miners-'+this[0], data.pool.miners);
-                updateText('workers-'+host, (data.pool.workers || 0));
+                updateText('workers-'+this[0], (data.pool.workers || 0));
+                updateText('paymentsMinimum-'+this[0], (data.config.minPaymentThreshold / 100)+ 'PSTAR');
+                updateText('paymentsInterval-'+this[0], getReadableTime(data.config.paymentsInterval || 0));
+                updateText('fee-'+this[0], data.config.fee);
                 updateText('totalBlocks-'+this[0], data.pool.totalBlocks);
                 updateText('lastBlockFound-'+this[0], new Date(parseInt(data.pool.lastBlockFound)).toLocaleString());
+                updateText('miners-'+this[0], lastStats.config.paymentsInterval);
+                
             });
         });
         
@@ -127,17 +157,41 @@ body {
         return diff.toFixed(4) + byteUnits[i];
     }
     
+    function getReadableTime(seconds){
+
+        var units = [ [60, 'second'], [60, 'minute'], [24, 'hour'],
+            [7, 'day'], [4, 'week'], [12, 'month'], [1, 'year'] ];
+
+        function formatAmounts(amount, unit){
+            var rounded = Math.round(amount);
+            return '' + rounded + ' ' + unit + (rounded > 1 ? 's' : '');
+        }
+
+        var amount = seconds;
+        for (var i = 0; i < units.length; i++){
+            if (amount < units[i][0])
+                return formatAmounts(amount, units[i][1]);
+            amount = amount / units[i][0];
+        }
+        return formatAmounts(amount,  units[units.length - 1][1]);
+    }
+    
+    
     $.each(listPool, function(){
         XhrNetworkStat = $.getJSON(this[2] + '/stats', (data, textStatus, jqXHR) => {
             $('#rows').append('<tr>' +
-                '<td id=coin-'+this[0]+'><a target="_blank" href='+this[1]+'><img src="logo.png" title="'+this[0]+'" />'+this[0]+'</a></td>' +
+                '<td class="left" id=coin-'+this[0]+'><a target="_blank" href='+this[1]+'><img src="logo.png" title="'+this[0]+'" />'+this[0]+'</a></td>' +
                 '<td id=hashrate-'+this[0]+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
                 '<td id=difficulty-'+this[0]+'>'+getReadableDiffString(data.network.difficulty)+'</td>' +
                 '<td id=nethashrate-'+this[0]+'>'+getReadableHashRateString(data.network.difficulty/data.config.coinDifficultyTarget)+'/s'+'</td>' +
                 '<td id=miners-'+this[0]+'>'+data.pool.miners+'</td>' +
                 '<td id=workers-'+this[0]+'>'+(data.pool.workers || 0)+'</td>' +
+                '<td id=paymentsMinimum-'+this[0]+'>'+(data.config.minPaymentThreshold / 100)+ ' PSTAR'+'</td>' +
+                '<td id=paymentsInterval-'+this[0]+'>'+getReadableTime(data.config.paymentsInterval || 0)+'</td>' +
+                '<td id=fee-'+this[0]+'>'+data.config.fee+'%</td>' +
                 '<td id=totalBlocks-'+this[0]+'>'+data.pool.totalBlocks+'</td>' +
                 '<td id=lastBlockFound-'+this[0]+'>'+new Date(parseInt(data.pool.lastBlockFound)).toLocaleString()+'</td>' +
+                
             '</tr>');
         });
     });
