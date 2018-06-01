@@ -90,7 +90,7 @@ body {
                 updateText('difficulty-'+this[0], getReadableDiffString(data.network.difficulty));
                 updateText('nethashrate-'+this[0], getReadableHashRateString(data.network.difficulty/data.config.coinDifficultyTarget)+'/s');
                 updateText('miners-'+this[0], data.pool.miners);
-                //updateText('workers-'+this[0], data.pool.workers);
+                updateText('workers-'+this[0], data.pool.workers);
                 updateText('totalBlocks-'+this[0], data.pool.totalBlocks);
                 updateText('lastBlockFound-'+this[0], new Date(parseInt(data.pool.lastBlockFound)).toLocaleString());
             });
@@ -130,7 +130,7 @@ body {
     $.each(listPool, function(){
         XhrNetworkStat = $.getJSON(this[2] + '/stats', (data, textStatus, jqXHR) => {
             $('#rows').append('<tr>' +
-                '<td id=coin-'+this[0]+'><a target="_blank" href='+this[1]+'><img src="'+this[1]+'/logo.png" title="'+this[0]+'" />'+this[0]+'</a></td>' +
+                '<td id=coin-'+this[0]+'><a target="_blank" href='+this[1]+'><img src="logo.png" title="'+this[0]+'" />'+this[0]+'</a></td>' +
                 '<td id=hashrate-'+this[0]+'>'+getReadableHashRateString(data.pool.hashrate)+'/s'+'</td>' +
                 '<td id=difficulty-'+this[0]+'>'+getReadableDiffString(data.network.difficulty)+'</td>' +
                 '<td id=nethashrate-'+this[0]+'>'+getReadableHashRateString(data.network.difficulty/data.config.coinDifficultyTarget)+'/s'+'</td>' +
