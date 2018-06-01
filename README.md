@@ -1,2 +1,2 @@
-# npoolpw.github.io
-npool.pw main page
+# https://github.com/leisegang/Pinkstarcoin-Pool-List/
+pinkstarcoin pool list main page
