@@ -1,6 +1,6 @@
 listPool = [
   ['Stellite', 'http://npool.pw/stellite', 'http://stl.npool.pw:8113'],
-  ['Pinkstarcoin', 'http://npool.pw/pstar', 'http://pnks.npool.pw:8114'],
+  ['PinkstarcoinV2', 'https://npool.pw/pstar', 'http://ca.npool.pw:3010'],
   ['BBScoin', 'http://npool.pw/bbscoin', 'http://bbs.npool.pw:8115'],
   ['Qwertycoin', 'http://npool.pw/qwc', 'http://qwc.npool.pw:8116'],
   ['IPBC', 'http://npool.pw/ipbc', 'http://ipbc.pool.ahka.net:8117'],
