@@ -10,7 +10,7 @@ listPool = [
   ['Triton', 'http://npool.pw/triton', 'http://sg1.npool.pw:3010'],
   ['Tychecash', 'http://npool.pw/tychecash', 'http://tyc.npool.pw:10020'],
   ['KreditX', 'http://npool.pw/kreditx', 'http://krx.npool.pw:10030'],
-  ['Balkancoin', 'http://npool.pw/bkc', 'http://bkc.npool.pw:10040'],
+  ['Balkancoin', 'https://npool.pw/bkc', 'https://api.npool.pw/bkc'],
   ['Loncoin', 'http://npool.pw/loncoin', 'http://lcn.npool.pw:10050'],
   ['Jimcoin', 'http://npool.pw/jimcoin', 'http://jim.npool.pw:10060'],
   ['Bitsum', 'http://npool.pw/bitsum', 'http://sum.npool.pw:10070'],
