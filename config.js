@@ -17,7 +17,7 @@ listPool = [
   ['Pluracoin', 'http://npool.pw/plura', 'http://ca.npool.pw:10080'],
   ['Elyacoin', 'http://npool.pw/elyacoin', 'http://ca.npool.pw:10090'],
   ['Italocoin', 'http://npool.pw/italocoin', 'http://ca.npool.pw:2220'],
-  ['Marketcash', 'http://npool.pw/mkt', 'https://api.npool.pw/mkt'],
+  ['Marketcash', 'https://npool.pw/mkt', 'https://api.npool.pw/mkt'],
   ['Linescoin', 'https://npool.pw/linescoin', 'https://api.npool.pw/lns'],
   ['Halykcoin', 'http://npool.pw/halykcoin', 'http://ca.npool.pw:2250'],
   ['Spescoin', 'http://npool.pw/spescoin', 'http://sg2.npool.pw:2260'],
